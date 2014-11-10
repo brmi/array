@@ -37,10 +37,13 @@ int rotateLeft(string a[], int n, int pos);
 
 int main()
 {
-    const string cast[6] = { "loil", "wen", "wwen", "rick", "rick", "daryl" };
+    string cast[6] = { "loil", "wen", "jing", "sam", "rick", "daryl" };
     int n=6;
+    int pos=2;
     
-    cout<<positionOfMax(cast, n);
+    // {"loil", "wen", "sam", "rick", "daryl", "wen" };
+    
+    cout<<rotateLeft(cast, n, pos);
 }
 
 
@@ -110,8 +113,26 @@ int positionOfMax(const string a[], int n)
 
 int rotateLeft(string a[], int n, int pos)
 {
+    if(n<0)
+        return -1;
     
+    string temp;
+    temp= a[pos];
+    
+    for (int i=0; i<n; i++)
+    {
+        a[pos]=a[pos+1];
+        pos++;
+        if (pos==(n-1))
+        {
+            break;
+        }
+        cout<<a[i]<<endl;
+    }
+    a[n-1]=temp;
+    return 1;
 }
+
 
 
 
