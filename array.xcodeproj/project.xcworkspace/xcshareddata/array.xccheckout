@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>02A03E0B-6E49-458D-AC13-9DDB0455E7A1</string>
+	<key>IDESourceControlProjectName</key>
+	<string>array</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>09E9AE7536809EAA23C08A2D0DB1C7C827824C03</key>
+		<string>https://github.com/brmi/array.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>array.xcodeproj</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>09E9AE7536809EAA23C08A2D0DB1C7C827824C03</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/brmi/array.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>09E9AE7536809EAA23C08A2D0DB1C7C827824C03</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>09E9AE7536809EAA23C08A2D0DB1C7C827824C03</string>
+			<key>IDESourceControlWCCName</key>
+			<string>array</string>
+		</dict>
+	</array>
+</dict>
+</plist>

@@ -22,10 +22,14 @@ using namespace std;
 //Return the position of a string in the array such that that string is >= every string in the array.
 
 //int rotateLeft(string a[], int n, int pos);
-//Eliminate the item at position pos by copying all elements after it one place to the left. Put the item that was thus eliminated into the last position of the array. Return the original position of the item that was moved to the end. Here's an example:
+//Eliminate the item at position pos by copying all elements after it one place to the left. Put the item that was thus eliminated into the last position of the array. Return the original position of the item that was moved to the end.
+
+//int rotateRight(string a[], int n, int pos);
+//Eliminate the item at position pos by copying all elements before it one place to the right. Put the item that was thus eliminated into the first position of the array. Return the original position of the item that was moved to the beginning. Here's an example:
 //string characters[5] = { "rosita", "bob", "sasha", "glenn", "michonne" };
-//int m = rotateLeft(characters, 5, 1);  // returns 1
-//// characters now contains:  "rosita", "sasha", "glenn", "michonne", "bob"
+//int p = rotateRight(characters, 5, 2);  // returns 2
+//// characters now contains:  "sasha", "rosita", "bob", "glenn", "michonne"
+
 
 int appendToAll(string a[], int n, string value);
 
@@ -35,17 +39,46 @@ int positionOfMax(const string a[], int n);
 
 int rotateLeft(string a[], int n, int pos);
 
+int rotateRight(string a[], int n, int pos);
+
 int main()
 {
-    string cast[6] = { "loil", "wen", "jing", "sam", "rick", "daryl" };
-    int n=6;
-    int pos=0;
+    string cast[6] = { "rosita", "bob", "sasha", "glenn", "michonne" };
+    int n=5;
+    int pos=1;
     
-    // {"loil", "wen", "sam", "rick", "daryl", "jing" };
+    //{ "rosita", "rosita", "sasha", "glenn", "michonne" }
     
-    cout<<rotateLeft(cast, n, pos);
+    cout<<rotateRight(cast, n, pos);
 }
 
+int rotateRight(string a[], int n, int pos)
+{
+    if(n<0)
+        return -1;
+    
+    string temp;
+    temp= a[pos];
+    int originalPos=pos;
+    
+    for (int i=0; i<n; i++)
+    {
+        if (pos!=(n-1))
+        {
+            string tempString;
+            a[pos]=a[pos-1];
+            
+            
+            pos++;
+        }else
+        {
+            a[0]=temp;
+            
+        }
+        cout<<a[i]<<endl;
+    }
+    return originalPos;
+}
 
 int appendToAll(string a[], int n, string value)
 {
@@ -118,6 +151,7 @@ int rotateLeft(string a[], int n, int pos)
     
     string temp;
     temp= a[pos];
+    int originalPos=pos;
     
     for (int i=0; i<n; i++)
     {
@@ -132,8 +166,9 @@ int rotateLeft(string a[], int n, int pos)
         }
         cout<<a[i]<<endl;
     }
-    return 1;
+    return originalPos;
 }
+
 
 
 
