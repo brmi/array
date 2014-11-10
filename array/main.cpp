@@ -47,7 +47,7 @@ int main()
     int n=5;
     int pos=1;
     
-    //{ "rosita", "rosita", "sasha", "glenn", "michonne" }
+    //{ "rosita", "bob", "sasha", "glenn", "michonne" }
     
     cout<<rotateRight(cast, n, pos);
 }
@@ -65,10 +65,9 @@ int rotateRight(string a[], int n, int pos)
     {
         if (pos!=(n-1))
         {
-            string tempString;
-            a[pos]=a[pos-1];
-            
-            
+            string tempString=a[pos-1];
+            a[pos-1]=a[pos];
+            a[pos]=tempString;
             pos++;
         }else
         {
