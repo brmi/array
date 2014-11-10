@@ -41,7 +41,7 @@ int main()
     int n=6;
     int pos=2;
     
-    // {"loil", "wen", "sam", "rick", "daryl", "wen" };
+    // {"loil", "wen", "sam", "rick", "daryl", "jing" };
     
     cout<<rotateLeft(cast, n, pos);
 }
@@ -121,15 +121,19 @@ int rotateLeft(string a[], int n, int pos)
     
     for (int i=0; i<n; i++)
     {
-        a[pos]=a[pos+1];
-        pos++;
-        if (pos==(n-1))
+        if (pos!=(n-2))
         {
-            break;
-        }
+            pos++;
+        }else
+            pos=pos;
+        
+        a[pos]=a[pos+1];
         cout<<a[i]<<endl;
+        
     }
     a[n-1]=temp;
+    cout<<a[n-1];
+    
     return 1;
 }
 
