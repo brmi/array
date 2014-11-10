@@ -48,17 +48,20 @@ int flip(string a[], int n);
 
 int main()
 {
-    string cast[6] = { "rosita", "bob", "sasha", "glenn", "michonne" };
-    int n=5;
+    string cast[6] = { "abra", "tara", "", "daryl", "carol", "tyreese" };
+    int n=4;
     
-    //{ "rosita", "rosita", "bob", "glenn", "michonne" }
+    //{ "daryl", "", "tara", "abra", "carol", "tyreese" }
     
     cout<<flip(cast, n);
 }
 
 int flip(string a[], int n)
 {
-    
+    for (int i=0; i<n; i++)
+    {
+        
+    }
 }
 
 
@@ -147,7 +150,6 @@ int rotateLeft(string a[], int n, int pos)
             a[n-1]=temp;
             
         }
-        cout<<a[i]<<endl;
     }
     return originalPos;
 }
