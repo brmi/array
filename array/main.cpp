@@ -51,17 +51,23 @@ int main()
     string cast[6] = { "abra", "tara", "", "daryl", "carol", "tyreese" };
     int n=4;
     
-    //{ "daryl", "", "tara", "abra", "carol", "tyreese" }
+    //{ "abra", "tara", "", "abra", "carol", "tyreese" }
     
     cout<<flip(cast, n);
 }
 
 int flip(string a[], int n)
 {
-    for (int i=0; i<n; i++)
+    string temp=a[n-1];
+    int i=0;
+    int j=n;
+    
+    while (i<n)
     {
-        
+        a[n-1]=a[i];
+        a[i]=temp;
     }
+    return n;
 }
 
 
