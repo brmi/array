@@ -39,7 +39,7 @@ int main()
 {
     string cast[6] = { "loil", "wen", "jing", "sam", "rick", "daryl" };
     int n=6;
-    int pos=2;
+    int pos=0;
     
     // {"loil", "wen", "sam", "rick", "daryl", "jing" };
     
@@ -121,19 +121,17 @@ int rotateLeft(string a[], int n, int pos)
     
     for (int i=0; i<n; i++)
     {
-        if (pos!=(n-2))
+        if (pos!=(n-1))
         {
+            a[pos]=a[pos+1];
             pos++;
         }else
-            pos=pos;
-        
-        a[pos]=a[pos+1];
+        {
+            a[n-1]=temp;
+            
+        }
         cout<<a[i]<<endl;
-        
     }
-    a[n-1]=temp;
-    cout<<a[n-1];
-    
     return 1;
 }
 
