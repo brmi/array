@@ -28,10 +28,13 @@ using namespace std;
 //Eliminate the item at position pos by copying all elements before it one place to the right. Put the item that was thus eliminated into the first position of the array. Return the original position of the item that was moved to the beginning.
 
 //int flip(string a[], int n);
-//Reverse the order of the elements of the array and return n. For example,
-//string roles[6] = { "abraham", "tara", "", "daryl", "carol", "tyreese" };
-//int q = flip(roles, 4);  // returns 4
-//// roles now contains:  "daryl"  ""  "tara"  "abraham"  "carol"  "tyreese"
+//Reverse the order of the elements of the array and return n.
+
+
+//int differ(const string a1[], int n1, const string a2[], int n2);
+//Return the position of the first corresponding elements of a1 and a2 that are not equal.
+
+
 
 
 int appendToAll(string a[], int n, string value);
@@ -46,13 +49,16 @@ int rotateRight(string a[], int n, int pos);
 
 int flip(string a[], int n);
 
+int differ(const string a1[], int n1, const string a2[], int n2);
+
 int main()
 {
-    string cast[6] = { "abra", "tara", "", "daryl", "carol", "tyreese" };
-    int n=5;
+    string roles[6] = { "abraham", "tara", "", "daryl", "carol", "tyreese" };
     
+    string group[5] = { "abraham", "tara", "tyreese", "", "maggie" };
     
-    cout<<flip(cast, n);
+    cout<< differ(roles, 2, group, 1);
+    
 }
 
 
@@ -192,6 +198,32 @@ int flip(string a[], int n)
 }
 
 
+int differ(const string a1[], int n1, const string a2[], int n2)
+{
+    if(n1<0)
+        return -1;
+    if(n2<0)
+        return -1;
+    
+    int n;
+    
+    int j=0;
+    
+    if(n1<n2)
+        n=n1;
+    else
+        n=n2;
+    
+    for (int i=0; i<n; i++)
+    {
+        if(a1[i]!=a2[j])
+            return i;
+        j++;
+        
+    }
+    return n;
+    
+}
 
 
 
