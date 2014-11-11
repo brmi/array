@@ -49,31 +49,11 @@ int flip(string a[], int n);
 int main()
 {
     string cast[6] = { "abra", "tara", "", "daryl", "carol", "tyreese" };
-    int n=4;
+    int n=5;
     
-    //{ "daryl", "", "tara", "abra", "carol", "tyreese" }
     
     cout<<flip(cast, n);
 }
-
-int flip(string a[], int n)
-{
-    string temp;
-    int i=0;
-    int j=n;
-    
-    while (i<(n-2))
-    {
-        temp=a[j-1];
-        a[j-1]=a[i];
-        a[i]=temp;
-        i++;
-        j--;
-        cout<<a[i]<<endl;
-    }
-    return n;
-}
-
 
 
 int appendToAll(string a[], int n, string value)
@@ -188,6 +168,28 @@ int rotateRight(string a[], int n, int pos)
     return originalPos;
 }
 
+int flip(string a[], int n)
+{
+    if(n<0)
+        return -1;
+    
+    string temp;
+    int i=0;
+    int j=n;
+    
+    while (i<n)
+    {
+        temp=a[j-1];
+        a[j-1]=a[i];
+        a[i]=temp;
+        i++;
+        j--;
+        if(i>=j)
+            break;
+        
+    }
+    return n;
+}
 
 
 
