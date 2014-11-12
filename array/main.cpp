@@ -34,7 +34,16 @@ using namespace std;
 //int differ(const string a1[], int n1, const string a2[], int n2);
 //Return the position of the first corresponding elements of a1 and a2 that are not equal.
 
+//int subsequence(const string a1[], int n1, const string a2[], int n2);
+//If all n2 elements of a2 appear in a1, consecutively and in the same order, then return the position in a1 where that subsequence begins. If the subsequence appears more than once in a1, return the smallest such beginning position in the array. Return −1 if a1 does not contain a2 as a contiguous subsequence.
 
+//int lookupAny(const string a1[], int n1, const string a2[], int n2);
+//Return the smallest position in a1 of an element that is equal to any of the elements in a2. Return −1 if no element of a1 is equal to any element of a2. For example,
+//string names[10] = { "sasha", "rick", "beth", "glenn", "bob", "michonne" };
+//string set1[10] = { "maggie", "bob", "glenn", "rick" };
+//int v = lookupAny(names, 6, set1, 4);  // returns 1 (a1 has "rick" there)
+//string set2[10] = { "daryl", "carol" };
+//int w = lookupAny(names, 6, set2, 2);  // returns -1 (a1 has none)
 
 
 int appendToAll(string a[], int n, string value);
@@ -51,13 +60,19 @@ int flip(string a[], int n);
 
 int differ(const string a1[], int n1, const string a2[], int n2);
 
+int subsequence(const string a1[], int n1, const string a2[], int n2);
+
+int lookupAny(const string a1[], int n1, const string a2[], int n2);
+
+
 int main()
 {
-    string roles[6] = { "abraham", "tara", "", "daryl", "carol", "tyreese" };
+    string names[10] = { "sasha", "sasha", "sasha", "sasha", "sasha", "glen" };
     
-    string group[5] = { "abraham", "tara", "tyreese", "", "maggie" };
+    string names2[10] = { "sasha", "glenn" };
     
-    cout<< differ(roles, 2, group, 1);
+    cout<< subsequence(names, 5, names2, 2);
+    
     
 }
 
@@ -128,6 +143,9 @@ int positionOfMax(const string a[], int n)
 
 int rotateLeft(string a[], int n, int pos)
 {
+    if(pos>(n-1))
+        return -1;
+    
     if(n<0)
         return -1;
     
@@ -152,6 +170,9 @@ int rotateLeft(string a[], int n, int pos)
 
 int rotateRight(string a[], int n, int pos)
 {
+    if(pos>(n-1))
+        return -1;
+    
     if(n<0)
         return -1;
     
@@ -224,6 +245,56 @@ int differ(const string a1[], int n1, const string a2[], int n2)
     return n;
     
 }
+
+int subsequence(const string a1[], int n1, const string a2[], int n2)
+{
+    
+    if(n1<0)
+        return -1;
+    if(n2<0)
+        return -1;
+    
+    int count=0;
+    int i=0;
+    int j=0;
+    
+    while(i<n1)
+    {
+        if(n2==0)
+            return 0;
+        
+        if(j>=n2)
+            break;
+        
+        if(a1[i]==a2[j])
+        {
+            if(i>=(n1-1))
+                break;
+            i++;
+            j++;
+            count++;
+            
+            
+        }else if (a1[i]!=a2[j])
+        {
+            i++;
+            j=0;
+            count=0;
+        }
+    }
+    
+    if(j!=n2)
+        return -1;
+    else if(count>1)
+    {
+        return (i-count);
+    }
+    else
+    {
+        return -1;
+    }
+}
+
 
 
 
