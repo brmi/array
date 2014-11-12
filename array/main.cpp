@@ -38,13 +38,10 @@ using namespace std;
 //If all n2 elements of a2 appear in a1, consecutively and in the same order, then return the position in a1 where that subsequence begins. If the subsequence appears more than once in a1, return the smallest such beginning position in the array. Return −1 if a1 does not contain a2 as a contiguous subsequence.
 
 //int lookupAny(const string a1[], int n1, const string a2[], int n2);
-//Return the smallest position in a1 of an element that is equal to any of the elements in a2. Return −1 if no element of a1 is equal to any element of a2. For example,
-//string names[10] = { "sasha", "rick", "beth", "glenn", "bob", "michonne" };
-//string set1[10] = { "maggie", "bob", "glenn", "rick" };
-//int v = lookupAny(names, 6, set1, 4);  // returns 1 (a1 has "rick" there)
-//string set2[10] = { "daryl", "carol" };
-//int w = lookupAny(names, 6, set2, 2);  // returns -1 (a1 has none)
+//Return the smallest position in a1 of an element that is equal to any of the elements in a2. Return −1 if no element of a1 is equal to any element of a2.
 
+//int separate(string a[], int n, string separator);
+//Rearrange the elements of the array so that all the elements whose value is < separator come before all the other elements, and all the elements whose value is > separator come after all the other elements. Return the position of the first element that, after the rearrangement, is not < separator, or n if there are no such elements.
 
 int appendToAll(string a[], int n, string value);
 
@@ -64,17 +61,20 @@ int subsequence(const string a1[], int n1, const string a2[], int n2);
 
 int lookupAny(const string a1[], int n1, const string a2[], int n2);
 
+int separate(string a[], int n, string separator);
+
 
 int main()
 {
-    string names[10] = { "sasha", "sasha", "sasha", "sasha", "sasha", "glen" };
+    string names[10] = { "sasha", "rick", "beth", "glenn", "bob", "michonne" };
     
-    string names2[10] = { "sasha", "glenn" };
+    string set1[10] = { "maggie", "bob", "glenn", "rick" };
     
-    cout<< subsequence(names, 5, names2, 2);
+    cout<< lookupAny(names, 6, set1, 4);
     
     
 }
+
 
 
 int appendToAll(string a[], int n, string value)
@@ -296,6 +296,37 @@ int subsequence(const string a1[], int n1, const string a2[], int n2)
 }
 
 
+int lookupAny(const string a1[], int n1, const string a2[], int n2)
+{
+    if (n1<0 || n2<0)
+        return -1;
+    
+    int i=0;
+    int j=0;
+    
+    while(i<n1)
+    {
+        
+        if(j>=n2)
+            break;
+        
+        if(a1[i]==a2[j])
+        {
+            return i;
+            
+        }else if (a1[i]!=a2[j])
+        {
+            j++;
+        }
+        
+        if(j>=n2&& i!=n1)
+        {
+            i++;
+            j=0;
+        }
+    }
+    return -1;
+}
 
 
 
