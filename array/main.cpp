@@ -43,6 +43,7 @@ using namespace std;
 //int separate(string a[], int n, string separator);
 //Rearrange the elements of the array so that all the elements whose value is < separator come before all the other elements, and all the elements whose value is > separator come after all the other elements. Return the position of the first element that, after the rearrangement, is not < separator, or n if there are no such elements.
 
+
 int appendToAll(string a[], int n, string value);
 
 int lookup(const string a[], int n, string target);
@@ -66,13 +67,43 @@ int separate(string a[], int n, string separator);
 
 int main()
 {
-    string names[10] = { "sasha", "rick", "beth", "glenn", "bob", "michonne" };
+    string cast[6] = { "maggie", "carl", "daryl", "rick", "michonne", "carol" };
     
-    string set1[10] = { "maggie", "bob", "glenn", "rick" };
-    
-    cout<< lookupAny(names, 6, set1, 4);
+    cout<< separate(cast, 6, "glenn");
     
     
+}
+
+int separate(string a[], int n, string separator)
+{
+    if(n<0)
+        return -1;
+    
+    int count=0;
+    for (int i=0; i<n; i++)
+    {
+        int m=0;
+        while(m<n)
+        {
+            if(a[i]>separator)
+            {
+                string temp;
+                temp= a[i];
+                
+                for (int j=i; j<n; j++)
+                {
+                    a[j]=a[j+1];
+                }
+                a[n-1]=temp;
+                m++;
+                //move a[i] to the last position & move everything else to the left one
+            }else
+                break;
+        }if(a[i]<=separator)
+            count++;
+        //cout<<a[i]<<" ";
+    }
+    return count;
 }
 
 
